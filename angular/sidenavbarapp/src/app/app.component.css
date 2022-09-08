@@ -1,0 +1,18 @@
+:host{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* side bar width */
+
+mat-drawer {
+    width: 260px;
+    background-color: black;
+    color: white;
+
+}
+
+mat-drawer-container{
+    height: 100%;
+}

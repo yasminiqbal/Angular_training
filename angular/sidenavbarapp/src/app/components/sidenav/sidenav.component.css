@@ -1,0 +1,44 @@
+.logo{
+    text-align: center;
+    justify-content: center;
+}
+.logo img{
+    height: 150px;
+    width: 180px;
+}
+
+.mat-icon{
+    vertical-align: center;
+    margin-right: 1rem;
+}
+
+.mat-divider{
+    border-top-width: 1.5px;
+    border-color: white;
+}
+
+.mat-list-item{
+    color: white !important;
+    font-size: 0.8rem;
+    margin-bottom: 4px;
+    height: 44px !important;
+    ::ng-deep { 
+        .mat-list-item-content {
+            border-radius: 5px;
+            margin: 0 8px;
+            &:hover {
+                background: #2c3344 !important;
+                }
+            }
+    }
+        
+}
+
+
+
+.mt-2{
+    color: white;
+    justify-content: start;
+    height: 44px;
+    
+}

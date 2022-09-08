@@ -1,0 +1,17 @@
+<!-- Create a container with material ui -->
+<mat-drawer-container> 
+  <!-- Drawer for side nav -->
+  <mat-drawer mode="side" opened="true">
+
+    <app-sidenav></app-sidenav>
+
+  </mat-drawer>
+  <!-- content for header and content -->
+  <mat-drawer-content>
+
+    <app-header></app-header>
+    <router-outlet></router-outlet>
+
+  </mat-drawer-content>
+<!-- create a css for this container -->
+</mat-drawer-container>
