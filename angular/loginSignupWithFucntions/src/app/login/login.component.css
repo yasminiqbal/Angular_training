@@ -1,0 +1,17 @@
+.ng-star-inserted{
+    width: 100%;
+}
+
+.mat-divider{
+    border: transparent;
+}
+.mat-raised-button{
+    margin: 5px;
+    width: max-content;
+}
+.mat-card{
+    box-shadow: 5px 3px 3px 3px #888888;
+    /* border: solid ; */
+    /* background: #444747;*/
+    
+}
