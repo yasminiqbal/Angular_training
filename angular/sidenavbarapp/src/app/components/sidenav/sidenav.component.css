@@ -19,26 +19,27 @@
 
 .mat-list-item{
     color: white !important;
-    font-size: 0.8rem;
+    font-size: 1rem;
     margin-bottom: 4px;
-    height: 44px !important;
-    ::ng-deep { 
-        .mat-list-item-content {
-            border-radius: 5px;
-            margin: 0 8px;
-            &:hover {
-                background: #2c3344 !important;
-                }
-            }
-    }
-        
+    height: 44px !important;       
 }
-
-
+a.mat-list-item:hover{
+    background: #2c3344 !important;
+    border-radius: 5px;
+    margin: 0 8px;
+}
 
 .mt-2{
     color: white;
     justify-content: start;
-    height: 44px;
-    
+    height: 44px; 
+    font-size: 1.5rem;
+}
+
+.list-item-active{
+    color: #f2f5f7;
+}
+
+.list-item-active:hover{
+    background: #2c3344 !important;
 }
