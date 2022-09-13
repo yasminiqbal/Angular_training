@@ -1,1 +1,179 @@
-<p>header works!</p>
+<!-- Header  -->
+
+<header>
+    <div id="top-header">
+        <div class="container">
+            <ul class="header-links pull-left">
+                <li>
+                    <a href="#">
+                        <i class="fa fa-phone"></i>
+                        +021-95-51-84
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-envelope-o"></i>
+                        email@email.com
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-map-marker"></i>
+                        17 Sarva Center
+                    </a>
+                </li>
+            </ul>
+            <ul class="header-links pull-right">
+                <li><a href="#"><i class="fa fa-dollar"></i> USD</a></li>
+                <li><a href="#"><i class="fa fa-user-o"></i> My Account</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- /TOP HEADER -->
+
+    <!-- MAIN HEADER -->
+    <div id="header">
+        <!-- container -->
+        <div class="container">
+            <!-- Logo -->
+            <div class="col-md-3">
+                <div class="header-logo">
+                    <a routerLink="/" class="logo">
+                        <img src="../../../assets/img/logo.png" alt="">
+                    </a>
+                </div>
+            </div>
+            <!-- /LOGO -->
+
+            <!-- SEARCH BAR -->
+            <div class="col-md-6">
+                <div class="header-search">
+                    <form class="d-flex">
+                        <select class="input-select">
+                            <option value="0">All Categories</option>
+                            <option value="1">Category 01</option>
+                            <option value="2">Category 02</option>
+
+                        </select>
+                        <input type="text" class="search" placeholder="Search here">
+                        <button class="search-btn">Search</button>
+                    </form>
+                </div>
+            </div>
+            <!-- /search bar -->
+
+            <!-- Account -->
+            <div class="col-md-3 clearfix">
+                <div class="header-ctn">
+                    <!-- wishlist -->
+                    <div>
+                        <a href="#">
+                            <i class="fa fa-heart-o"></i>
+                            <span>Your whishlist</span>
+                            <div class="qty">0</div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- /whishlist  -->
+
+                <!-- cart -->
+                <div class="dropdown">
+                    <a class="dropdown" data-toggle="dropdown" aria-expanded="true" style="cursor: pointer;">
+                        <i class="fa fa-shopping-cart"></i>
+                        <span>Your cart</span>
+                        <div class="qty">
+                            yet to add the script
+                            <!-- {{cartData.data[0].numInCart !== 0 ? cartData.data.length : 0}} -->
+                        </div>
+                    </a>
+
+                    <div class="cart-dropdown">
+                        <div class="cart-list">
+                            <!-- *ngIf="cartData.data[0].numInCart !== 0" -->
+                            <div class="product-widget">
+                                <!-- *ngFor="let c of cartData.data; let i=index" -->
+                                <div class="product-img">
+                                    <!-- <img src="{{c.product?.image}}" alt="" width="20px"> -->
+                                </div>
+
+                                <div class="product-body">
+                                    <h3 class="product-name"><a href="#">
+                                            <!-- {{c.product?.name}} -->
+                                        </a></h3>
+                                    <h4 class="product-price"><span class="qty">
+                                            <!-- {{c.numInCart}} x -->
+                                        </span>
+                                        <!-- {{c.product?.price | currency:'USD'}} -->
+                                    </h4>
+                                </div>
+
+                                    <button class="delete"><i class="fa fa-close"></i>
+                                        <!-- (click)="cartService.DeleteProductFromCart(i)" -->
+                                    </button>
+                            </div>
+
+                            <div class="cart-summary">
+                                <small>
+                                    <!-- {{cartData.data[0].numInCart !== 0 ? cartData.data.length : 0}} Item(s) selected -->
+                                </small>
+                                <h5>
+                                    <!-- TOTAL : {{cartTotal | currency:'USD'}} -->
+                                </h5>
+                            </div>
+
+                            <div class="cart-btns">
+                                <a routerLink="/cart">View Cart</a>
+                                <a routerLink="/checkout"> Checkout <i class="fa fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /cart -->
+
+
+                <!-- // cart not finished yet -->
+
+                <!-- Menu Toggle -->
+                <div class="menu-toggle">
+                    <a href="#">
+                        <i class="fa fa-bars">
+                        </i>
+                        <span>
+                            Menu
+                        </span>
+                    </a>
+
+                </div>
+                <!-- /menu toggle -->
+            </div>
+            <!-- /Account -->
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</header>
+
+<!-- Navigation -->
+<nav id="navigation">
+    <!-- container -->
+    <div class="container">
+        <!-- responsive navigation -->
+        <div id="responsive-nav">
+            <!-- nav -->
+
+            <ul class="main-nav nav py-3">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Categories</a></li>
+                <li><a href="#">Games</a></li>
+                <li><a href="#">Contact Us</a></li>
+
+            </ul>
+            <!-- /NAV -->
+        </div>
+        <!-- /responsive-nav -->
+    </div>
+    <!-- /container -->
+</nav>
+<!-- /NAVIGATION -->
