@@ -1,1 +1,13 @@
-<p>product-item works!</p>
+<a href="#" class="list-group-item clearfix">
+    <div class="pull-left">
+        <h4 class="list-group-item-heading">
+            {{ productItem.name }}
+        </h4>
+        <p class="list-item-text">
+            {{ productItem.description }}
+        </p>
+    </div>
+    <span class="pull-right">
+        <img [src]="productItem.imagepath" alt="{{ productItem.name }}" class="img-responsive" style="max-height: 50px;">
+    </span>
+</a>

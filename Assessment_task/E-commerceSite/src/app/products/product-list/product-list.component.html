@@ -8,19 +8,9 @@
 <hr>
 <div class="row">
     <div class="col-xs-12">
-        <a href="#" class="list-group-item clearfix" *ngFor="let product of products">
-            <div class="pull-left">
-                <h4 class="list-group-item-heading">
-                    {{ product.name }}
-                </h4>
-                <p class="list-item-text">
-                    {{ product.description }}
-                </p>
-            </div>
-            <span class="pull-right">
-                <img [src]="product.imagepath" alt="{{ product.name }}" class="img-responsive" style="max-height: 50px;">
-            </span>
-        </a>
-        <app-product-item></app-product-item>
+        
+        <app-product-item *ngFor="let product of products" [productItem]="product">
+
+        </app-product-item>
     </div>
 </div>
