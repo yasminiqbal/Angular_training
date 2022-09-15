@@ -8,6 +8,8 @@ import { Product } from '../../product.model';
 })
 export class ProductItemComponent implements OnInit {
 
+  style = "max-height: 50px;"
+
   @Input()
   productItem : Product;
 
