@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductDetail } from '../shared/productDetail.model';
+import { ShoppingListService } from '../service/shopping-list.service'
 
 @Component({
   selector: 'app-shopping-list',
@@ -8,18 +9,18 @@ import { ProductDetail } from '../shared/productDetail.model';
 })
 export class ShoppingListComponent implements OnInit {
 
-  productDetail : ProductDetail[] = [
-    new ProductDetail('Mobile',2),
-    new ProductDetail('watch', 1)
-  ];
+  productDetail : ProductDetail[];
 
-  constructor() { }
+  constructor(private shopService: ShoppingListService) { }
 
-  ngOnInit(): void { 
-  }
+  ngOnInit() { 
+    this.productDetail = this.shopService.getProductDetail();
 
-  onProductAdded(product: ProductDetail){
-    this.productDetail.push(product);
+    this.shopService.productsChanged.subscribe(
+      (productDetail: ProductDetail[]) => {
+        this.productDetail = productDetail;
+      }
+    )
   }
 
 }

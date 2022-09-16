@@ -1,0 +1,11 @@
+.img-size{
+    max-height: 300px;
+}
+.row{
+    margin-top: 5px;
+}
+
+/* for dropdown */
+.dropdown-pointer{
+    cursor: pointer;
+}

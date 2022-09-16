@@ -1,14 +1,28 @@
+/* navbar-bg */
 .navbar-default {
     background-color: #060606;
     border-bottom: 3px solid red;
 }
-.navbar-default .navbar-nav>li>a {
-    color: #fff;
-}
+
+/* navbar-heading */
 .navbar-default .navbar-brand {
     color: #fff;
 }
+.navbar-default .navbar-brand:hover {
+    opacity:0.5;
+}
+
+/* account button highlight */
 .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
     
     background-color: transparent;
+}
+
+/* nav-bar list */
+.navbar-default .navbar-nav>li>a {
+    color: #fff;
+}
+ul li a:hover{
+    transform: scale(1.1);
+    opacity:0.5;
 }

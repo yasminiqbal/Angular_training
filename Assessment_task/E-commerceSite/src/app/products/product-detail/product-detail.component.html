@@ -1,12 +1,12 @@
 <div class="row">
     <div class="col-xs-12">
-        <img src="" alt="" class="img-responsive">
+        <img [src]="product.imagepath" alt="{{product.name}}" class="img-responsive img-size">
     </div>
 </div>
 
 <div class="row">
     <div class="col-xs-12">
-        <h1>Product Detail</h1>
+        <h1>{{ product.name }}</h1>
     </div>
 </div>
 
@@ -15,9 +15,9 @@
         <div class="btn-group" appDropdown>
             <button class="btn btn-primary dropdown-toggle" type="button">Manage Product <span class="caret"></span></button>
             <ul class="dropdown-menu" >
-                <li><a href="#">Shopping List</a></li>
-                <li><a href="#">Edit Product</a></li>
-                <li><a href="#">Delete Product</a></li>
+                <li><a class="dropdown-pointer" (click)="onAddToShoppingList()">Shopping List</a></li>
+                <li><a class="dropdown-pointer">Edit Product</a></li>
+                <li><a class="dropdown-pointer">Delete Product</a></li>
 
             </ul>
         </div>
@@ -26,12 +26,17 @@
 
 <div class="row">
     <div class="col-xs-12">
-        Description
+        {{product.description}}
     </div>
 </div>
 
 <div class="row">
     <div class="col-xs-12">
-        Product Details 
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let prodDetail of product.productDetail">
+                {{prodDetail.name}} - {{prodDetail.qty}}
+
+            </li>
+        </ul>
     </div>
 </div>

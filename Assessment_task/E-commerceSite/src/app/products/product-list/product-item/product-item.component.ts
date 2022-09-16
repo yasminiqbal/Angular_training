@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ProductService } from 'src/app/service/product.service';
 import { Product } from '../../product.model';
 
 @Component({
@@ -13,9 +14,14 @@ export class ProductItemComponent implements OnInit {
   @Input()
   productItem : Product;
 
-  constructor() { }
+
+  constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
+  }
+
+  onSelected(){
+    this.productService.productSelected.emit(this.productItem);
   }
 
 }

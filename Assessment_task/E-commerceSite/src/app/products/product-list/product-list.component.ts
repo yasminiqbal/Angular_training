@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from 'src/app/service/product.service';
 import { Product } from '../product.model'
 
 @Component({
@@ -8,14 +9,12 @@ import { Product } from '../product.model'
 })
 export class ProductListComponent implements OnInit {
 
-  products: Product[] = [ 
-    new Product('Apple', "IPhone 12 128GB - Blue", "https://images-eu.ssl-images-amazon.com/images/I/71ZOtNdaZCL._AC._SR360,460.jpg"),
-    new Product('Oppo A54', "Starry Blue, 4GB RAM, 64GB Storage with No Cost EMI ", "https://images-eu.ssl-images-amazon.com/images/I/71k86pEH5LS._AC._SR360,460.jpg")
-  ];
+  products: Product[] 
 
-  constructor() { }
+  constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
+    this.products = this.productService.getRecipes()
   }
 
 }
