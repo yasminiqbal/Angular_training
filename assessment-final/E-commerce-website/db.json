@@ -1,6 +1,102 @@
 {
   "productList": [
-  
+    {
+      "productName": "Samsung Galaxy M13 ",
+      "category": "Electronics",
+      "Comment": "Midnight Blue, 4GB, 64GB Storage",
+      "freshness": "Brand New",
+      "price": 11999,
+      "imgPath": "https://m.media-amazon.com/images/I/812YsUxpyfL._SX679_.jpg",
+      "id": 1
+    },
+    {
+      "productName": "Samsung Galaxy S20 FE 5G",
+      "category": "Electronics",
+      "Comment": "Cloud Navy, 8GB RAM, 128GB Storage",
+      "freshness": "Brand New",
+      "price": 29999,
+      "imgPath": "https://m.media-amazon.com/images/I/81vDZyJQ-4L._SY741_.jpg",
+      "id": 2
+    },
+    {
+      "productName": "GIGABYTE AORUS 15 XE5",
+      "category": "Electronics",
+      "Comment": "15.6\" Inch QHD 165Hz, Intel Core i7-12700H 12th Gen, RTX 3070Ti 8GB Graphics, Gaming Laptop (16GB DDR5 Memory/ Windows 11 Home/ Gen4 1TB SSD /Office 365 / Black)",
+      "freshness": "Brand New",
+      "price": 209990,
+      "imgPath": "https://m.media-amazon.com/images/I/61RV0SmNqsL._SX679_.jpg",
+      "id": 3
+    },
+    {
+      "productName": "Acer Swift X Sfx14-41G",
+      "category": "Electronics",
+      "Comment": "Creator Laptop Thin & Light 14 Inches Full Hd 100% Srgb AMD Ryzen 7 5800U Nvidia RTX 3050Ti Laptop Graphics 16Gb Lpddr4X 1Tb Ssd Backlit Kb 1.39Kg Mso Windows 11 Home",
+      "freshness": "Brand New",
+      "price": 99999,
+      "imgPath": "https://m.media-amazon.com/images/I/812lT5z7F2L._SX679_.jpg",
+      "id": 4
+    },
+    {
+      "productName": "iBELL IBL3288 ",
+      "category": "Electronics",
+      "Comment": "DVD Player with Built-in Amplifier & USB Copy Function",
+      "freshness": "Brand New",
+      "price": 3080,
+      "imgPath": "https://m.media-amazon.com/images/I/612k8T+5pLL._SX522_.jpg",
+      "id": 5
+    },
+    {
+      "productName": "Jabra Elite 3 in Ear True Wireless Earbuds ",
+      "category": "Electronics",
+      "Comment": "Noise Isolating with 4 Built-in Microphones for Clear Calls, Rich Bass, Customizable Sound, Mono Mode - Dark Grey",
+      "freshness": "Brand New",
+      "price": 4499,
+      "imgPath": "https://m.media-amazon.com/images/I/51gHLtWdW7L._SX522_.jpg",
+      "id": 6
+    },
+    {
+      "productName": "Juârez Acoustic Guitar",
+      "category": "Electronics",
+      "Comment": "38 Inch Cutaway, 038C with Bag, Strings, Pick and Strap, Black",
+      "freshness": "Brand New",
+      "price": 2389,
+      "imgPath": "https://m.media-amazon.com/images/I/71y1TJbygLL._SX522_.jpg",
+      "id": 7
+    },
+    {
+      "productName": "Apple",
+      "category": "Electronics",
+      "Comment": "Apple iPhone 13 (128GB) - Blue",
+      "freshness": "Brand New",
+      "price": 65900,
+      "imgPath": "https://m.media-amazon.com/images/I/71xb2xkN5qL._SX679_.jpg",
+      "id": 8
+    },
+    {
+      "productName": "Apple",
+      "category": "Electronics",
+      "Comment": "Apple iPhone 13 Pro (128GB) - Sierra Blue",
+      "freshness": "Brand New",
+      "price": 103900,
+      "imgPath": "https://m.media-amazon.com/images/I/61jLiCovxVL._SX679_.jpg",
+      "id": 9
+    },
+    {
+      "productName": "Apple AirPods",
+      "category": "Electronics",
+      "Comment": "Apple AirPods with Wireless Charging Case",
+      "freshness": "Brand New",
+      "price": 24999,
+      "imgPath": "https://m.media-amazon.com/images/I/71IPFP9WJIL._SX522_.jpg",
+      "id": 10
+    }
+  ],
+  "superuser": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "password123"
+    }
   ],
   "comments": [
     {

@@ -2,6 +2,13 @@
     margin-right: 10px;
 }
 .card{
-    background-color: rgb(216, 222, 228);
+    background-color: rgb(172, 217, 194);
     margin-bottom: 25px;
+    max-width: 20rem;
+   
+}
+.card-img-top{
+    height: 300px;}
+.card-body{
+   height: 350;
 }

@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from 'src/app/services/api.service';
-import { MatDialogRef} from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-popup-add-product',
@@ -11,40 +11,83 @@ import { MatDialogRef} from '@angular/material/dialog';
 export class PopupAddProductComponent implements OnInit {
 
   freshnessList = ["Brand New", "Refurbished"]
+  actionBtn: string = 'Save'
+
+
   productForm !: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private api: ApiService, private dialogRef: MatDialogRef<PopupAddProductComponent>) { }
+  constructor(private formBuilder: FormBuilder,
+    private api: ApiService,
+    @Inject(MAT_DIALOG_DATA) public editData: any,
+    private dialogRef: MatDialogRef<PopupAddProductComponent>) { }
 
-  
+
 
   ngOnInit(): void {
 
     this.productForm = this.formBuilder.group({
-      productName : ['', Validators.required],
-      category : ['', Validators.required],
-      // date: ['', Validators.required],
-      freshness : ['', Validators.required],
-      price : ['', Validators.required],
+      productName: ['', Validators.required],
+      category: ['', Validators.required],
       Comment: ['', Validators.required],
-      imgPath: ['', Validators.required]
-    })
-  }
+      // date: ['', Validators.required],
+      freshness: ['', Validators.required],
+      price: ['', Validators.required],
+      imgPath: ['', Validators.required],
+      
 
-  onAddProuct(){
-    if(this.productForm.valid){
-      this.api.postProduct(this.productForm.value).subscribe({
-        next:(res)=> {
-          // console.log(res);
-          alert("Product added successfully");
-          this.productForm.reset();
-          this.dialogRef.close('save');
-          
-        },
-        // error:()=> {
-        //   alert("Error While Adding the product")
-        // }
-      });
+    });
+    if (this.editData) {
+      this.actionBtn = 'Update'
+      this.productForm.controls['productName'].setValue(this.editData.productName);
+      this.productForm.controls['category'].setValue(this.editData.category);
+      this.productForm.controls['Comment'].setValue(this.editData.Comment);
+      this.productForm.controls['freshness'].setValue(this.editData.freshness);
+      this.productForm.controls['price'].setValue(this.editData.price);
+      this.productForm.controls['imgPath'].setValue(this.editData.imgPath);
+      
+    }
+
+  }
+  onAddProuct() {
+    if (!this.editData) {
+      if (this.productForm.valid) {
+        this.api.postProduct(this.productForm.value).subscribe(
+          {
+            next: (responsedata) => {
+              this.productForm.reset();
+              alert("Product added successfully");
+              this.dialogRef.close('save');
+            },
+            error: (err) => {
+              alert("Error While saving data")
+            }
+          }
+        );
+      }
+    }
+    else {
+      this.updateProduct()
     }
   }
 
+
+  updateProduct() {
+    this.api.putProduct(this.productForm.value, this.editData.id)
+      .subscribe(
+        {
+          next: (res) => {
+            alert("Product updated Successfully");
+            this.productForm.reset();
+            this.dialogRef.close('update');
+          },
+          error: (err) => {
+            alert("Error While updating data");
+          }
+        }
+      )
+  }
+
+
 }
+
+
