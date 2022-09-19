@@ -1,0 +1,26 @@
+<h1>
+    Login
+</h1>
+<div mat-dialogue-content>
+    <mat-form-field appearance="fill">
+
+        <mat-label>Username</mat-label>
+        <input matInput placeholder="Username" required>
+        <mat-error *ngIf="username.invalid">{{getErrorMessage()}}</mat-error>
+
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+
+    </mat-form-field>
+
+    <!-- <mat-form-field appearance="fill">
+        <button mat-raised-button color="primary" type="submit">Login</button>
+    </mat-form-field> -->
+</div>
