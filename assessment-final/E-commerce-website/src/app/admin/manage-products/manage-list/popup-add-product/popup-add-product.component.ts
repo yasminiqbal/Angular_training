@@ -12,6 +12,7 @@ export class PopupAddProductComponent implements OnInit {
 
   freshnessList = ["Brand New", "Refurbished"]
   actionBtn: string = 'Save'
+  productFormTitle: string = 'Add Product Form'
 
 
   productForm !: FormGroup;
@@ -37,6 +38,7 @@ export class PopupAddProductComponent implements OnInit {
 
     });
     if (this.editData) {
+      this.productFormTitle = 'Update Product Form'
       this.actionBtn = 'Update'
       this.productForm.controls['productName'].setValue(this.editData.productName);
       this.productForm.controls['category'].setValue(this.editData.category);
