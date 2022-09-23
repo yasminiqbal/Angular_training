@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from 'src/app/services/api.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-popup-add-product',
@@ -17,10 +18,19 @@ export class PopupAddProductComponent implements OnInit {
 
   productForm !: FormGroup;
 
+  singleProduct;
+ 
+  id;
+
   constructor(private formBuilder: FormBuilder,
     private api: ApiService,
+    private route: ActivatedRoute,
     @Inject(MAT_DIALOG_DATA) public editData: any,
-    private dialogRef: MatDialogRef<PopupAddProductComponent>) { }
+    private dialogRef: MatDialogRef<PopupAddProductComponent>) { 
+
+      this.id =  this.route.snapshot.paramMap.get('id');
+      if (this.id) this.api.get(this.id).valueChanges().subscribe(p => this.singleProduct = p );
+    }
 
 
 
@@ -53,20 +63,13 @@ export class PopupAddProductComponent implements OnInit {
   onAddProuct() {
     if (!this.editData) {
       if (this.productForm.valid) {
-        this.api.postProduct(this.productForm.value).subscribe(
-          {
-            next: (responsedata) => {
-              this.productForm.reset();
-              alert("Product added successfully");
-              this.dialogRef.close('save');
-            },
-            error: (err) => {
-              alert("Error While saving data")
-            }
-          }
-        );
+        this.api.create(this.productForm.value)
+        this.productForm.reset();
+        alert("Product added successfully");
+        this.dialogRef.close('save');
+  
       }
-    }
+      }
     else {
       this.updateProduct()
     }
@@ -74,21 +77,23 @@ export class PopupAddProductComponent implements OnInit {
 
 
   updateProduct() {
-    this.api.putProduct(this.productForm.value, this.editData.id)
-      .subscribe(
-        {
-          next: (res) => {
+    this.api.update(this.id, this.productForm.value );
             alert("Product updated Successfully");
             this.productForm.reset();
             this.dialogRef.close('update');
-          },
-          error: (err) => {
-            alert("Error While updating data");
-          }
-        }
-      )
+  //     .subscribe(
+  //       {
+  //         next: (res) => {
+  //           alert("Product updated Successfully");
+  //           this.productForm.reset();
+  //           this.dialogRef.close('update');
+  //         },
+  //         error: (err) => {
+  //           alert("Error While updating data");
+  //         }
+  //       }
+  //     )
   }
-
 
 }
 

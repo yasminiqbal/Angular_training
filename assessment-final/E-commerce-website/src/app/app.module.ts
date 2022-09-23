@@ -48,7 +48,15 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { AuthService } from './services/auth.service';
 import { UserService } from './services/user.service';
 import { AuthGuardService } from './services/auth-guard.service';
-
+import { ApiService } from './services/api.service';
+import { AdminAuthGuardService } from './services/admin-auth-guard.service';
+import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
+import { ProductFormComponent } from './admin/product-form/product-form.component';
+import { CategoriesService } from './services/categories.service';
+import { ProductService } from './services/product.service';
+import { ProductFilterComponent } from './user/components/dashboard/electronics/product-filter/product-filter.component';
+import { ProductCardComponent } from './product-card/product-card.component';
+import { ShoppingCartService } from './services/shopping-cart.service';
 
 
 @NgModule({
@@ -68,7 +76,11 @@ import { AuthGuardService } from './services/auth-guard.service';
     OrderSuccessComponent,
     MyOrdersComponent,
     AdminOrdersComponent,
-    LoginComponent
+    LoginComponent,
+    AdminProductsComponent,
+    ProductFormComponent,
+    ProductFilterComponent,
+    ProductCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -97,14 +109,21 @@ import { AuthGuardService } from './services/auth-guard.service';
     AngularFirestoreModule,
     AngularFireDatabaseModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    FormsModule
 
   ],
   
   providers: [
+    ApiService,
     AuthService,
     AuthGuardService,
-    UserService
+    UserService,
+    AdminAuthGuardService,
+    CategoriesService,
+    ProductService,
+    ShoppingCartService
+    
   ],
   bootstrap: [AppComponent]
 })

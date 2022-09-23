@@ -12,6 +12,10 @@ import { OrderSuccessComponent } from './user/components/order-success/order-suc
 import { LoginComponent } from './user/components/login/login.component';
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
 import { AuthGuardService } from './services/auth-guard.service';
+import { AdminAuthGuardService } from './services/admin-auth-guard.service';
+import { ProductFormComponent } from './admin/product-form/product-form.component';
+import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
+
 
 
 const routes: Routes = [
@@ -26,15 +30,20 @@ const routes: Routes = [
   {path:'user/login', component:LoginComponent},
 
 
-  {path:'my/orders', component:MyOrdersComponent},// canActivate:[AuthGuardService]},
-  {path:'checkout', component:CheckoutComponent},// canActivate:[AuthGuardService]},
-  {path:'ordersuccess', component:OrderSuccessComponent},// canActivate:[AuthGuardService]},
-  {path:'admin/orders', component:AdminOrdersComponent},// canActivate:[AuthGuardService]},
-  {path:'admin/login', component:AdminLoginComponent},// canActivate:[AuthGuardService]},
-  {
-    path:'admin/products', component:ManageListComponent
-  },
-  {path:'admin/electronics', component:ManageElectronicsComponent},
+  {path:'my/orders', component:MyOrdersComponent, canActivate:[AuthGuardService]},
+  {path:'checkout', component:CheckoutComponent, canActivate:[AuthGuardService]},
+  {path:'ordersuccess', component:OrderSuccessComponent, canActivate:[AuthGuardService]},
+
+
+  {path:'admin/orders', component:AdminOrdersComponent, canActivate:[AuthGuardService]},
+  {path:'admin/products', component:AdminProductsComponent, canActivate:[AuthGuardService]},
+  {path:'admin/products/new', component:ProductFormComponent, canActivate:[AuthGuardService]},
+  {path:'admin/products/:id', component:ProductFormComponent, canActivate:[AuthGuardService]},
+  // {path:'admin/login', component:AdminLoginComponent, canActivate:[AuthGuardService]},
+  // {path:'admin/products', component:ManageListComponent, canActivate:[AuthGuardService]},
+  // {path:'admin/products/:id', component:ManageListComponent, canActivate:[AuthGuardService]},
+   
+  {path:'admin/electronics', component:ManageElectronicsComponent, canActivate:[AuthGuardService]},
 ];
 
 @NgModule({ 

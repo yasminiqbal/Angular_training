@@ -5,6 +5,8 @@ import { PopupAddProductComponent } from './popup-add-product/popup-add-product.
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { ActivatedRoute, Router } from '@angular/router';
+import { take } from 'rxjs';
 
 @Component({
   selector: 'app-manage-list',
@@ -12,7 +14,7 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrls: ['./manage-list.component.css']
 })
 export class ManageListComponent implements OnInit {
-
+  
   displayedColumns: string[] = ["id",
     "productName",
     "category",
@@ -20,13 +22,19 @@ export class ManageListComponent implements OnInit {
     "freshness",
     "price",
     "imgPath",
-  "action"];
+    "action"];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private dialog: MatDialog, private api: ApiService) { }
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private dialog: MatDialog, private api: ApiService) { 
+
+    
+  }
 
   ngOnInit(): void {
     this.getAllProducts();
@@ -43,7 +51,8 @@ export class ManageListComponent implements OnInit {
   }
 
   getAllProducts() {
-    this.api.getProduct().subscribe(
+    this.api.getAll().valueChanges()
+    .subscribe(
       {
         next: (res) => {
           this.dataSource = new MatTableDataSource(res);
@@ -67,7 +76,7 @@ export class ManageListComponent implements OnInit {
     });
   }
 
-  deleteProduct(id:number){
+  deleteProduct(id:any){
     this.api.deleteProduct(id).subscribe({
       next:(res)=>{
         alert("Product deleted successfully");

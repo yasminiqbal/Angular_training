@@ -1,36 +1,52 @@
-import { Component, OnInit } from '@angular/core';
-import { ApiService } from 'src/app/services/api.service';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Products } from 'src/app/models/products';
+import { ProductService } from 'src/app/services/product.service';
+import { Subscription, switchMap } from 'rxjs';
+import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 
 @Component({
   selector: 'app-electronics',
   templateUrl: './electronics.component.html',
   styleUrls: ['./electronics.component.css']
 })
-export class ElectronicsComponent implements OnInit {
+export class ElectronicsComponent implements OnInit, OnDestroy{
 
-  product:any;
+  products: Products[] = [] ;
+  filteredProducts !: Products[];
+  
+  category: any;
+  cart:any;
+  subscription!: Subscription;
 
-  constructor(private api:ApiService) { 
-    
+  constructor(private producService:ProductService,
+    private route: ActivatedRoute, 
+    private shoppingCartService : ShoppingCartService   ) 
+    { 
+    producService.getAll().valueChanges()
+    .pipe(switchMap((products:any)=> {
+      this.products = products;
+      return route.queryParamMap;
+    }))
 
+      .subscribe(params =>
+        {
+          this.category = params.get('category');
+  
+          this.filteredProducts = (this.category) ? 
+          this.products.filter(p=> p.category === this.category) : 
+          this.products;
+        });
+   
   }
 
-
-  ngOnInit(): void {
-    this.getItem();
-
-  }
-
-  getItem(){
-    this.api.getProduct().subscribe({
-      next:(res)=> {
-        this.product = res;
-        // console.log(this.product)
-      }
-    }
-    );
-  }
-
-
+async ngOnInit() {
+  this.subscription = (await this.shoppingCartService.getCart()).valueChanges()
+  .subscribe(cart => this.cart = cart);
+}
+ngOnDestroy(): void {
+  
+  this.subscription.unsubscribe();
+}
 
 }

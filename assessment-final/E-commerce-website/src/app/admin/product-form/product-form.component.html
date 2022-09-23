@@ -1,0 +1,78 @@
+<div class="container p-5">
+    <div class="row">
+        <div class="col-md-6">
+
+            <form #f="ngForm" (ngSubmit)="save(f.value)">
+
+                <div class="form-group mb-3">
+                    <label for="prodName">
+                        Product Name
+                    </label>
+                    <input #prodName="ngModel" [(ngModel)]="product.prodName" name="prodName" id="prodName" type="text" class="form-control"
+                        required >
+                    <div *ngIf="prodName.invalid && (prodName.dirty || prodName.touched)" class="alert alert-danger">
+                        Product Name Required.
+                    </div>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="category">
+                        Category
+                    </label>
+                    <select #category="ngModel" [(ngModel)]="product.category" name="category" id="category" class="form-control" required>
+                        <option *ngFor="let c of categories$ " [value]="c.name">
+                            {{c.name}}
+                        </option>
+                    </select>
+                    <div *ngIf="category.invalid && category.touched" class="alert alert-danger">
+                        Category Required.
+                    </div>
+
+                </div>
+                <div class="form-group mb-3">
+                    <label for="description">
+                        Description
+                    </label>
+                    <input #description="ngModel" [(ngModel)]="product.description" name="description" id="description" type="text"
+                        class="form-control" required>
+                    <div *ngIf="description.invalid && (description.dirty || description.touched)"
+                        class="alert alert-danger">
+                        Description Required.
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="price">
+                        Price
+                    </label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> ₹ </span>
+                        </div>
+                        <input #price="ngModel" [(ngModel)]="product.price" name="price" id="price" type="number" class="form-control"
+                            required>
+
+                    </div>
+                    <div *ngIf="price.invalid && (price.dirty || price.touched)" class="alert alert-danger">
+                        Price Required.
+                    </div>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="imgPath">
+                        Image Path
+                    </label>
+                    <input #imgPath="ngModel" [(ngModel)]="product.imgPath" name="imgPath" id="imgPath" type="text" class="form-control"
+                        required>
+                    <div *ngIf="imgPath.invalid && (imgPath.dirty || imgPath.touched)" class="alert alert-danger">
+                        Image Path Required.
+                    </div>
+                </div>
+                <button class="btn btn-primary">{{actionBtn}}</button>
+                <button type="button" (click)="delete()" class="btn btn-danger">Delete</button>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <app-product-card [product]="product" [show-actions]=false></app-product-card>
+        </div>
+    </div>  
+</div>

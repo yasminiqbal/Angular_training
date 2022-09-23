@@ -1,0 +1,30 @@
+<div class="container p-5">
+    <a routerLink="/admin/products/new" class="btn btn-warning">Add Product</a>
+</div>
+
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Categories</th>
+                <th>Price</th>
+                <th>Edit Action</th>
+            
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of products">
+                <td>{{p.prodName}}</td>
+                <td>{{p.category}}</td>
+                <td>{{p.price}}</td>
+                <td>
+                    <a [routerLink]="['/admin/products/',p.$key]"><mat-icon>edit</mat-icon></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+</div>
+  
