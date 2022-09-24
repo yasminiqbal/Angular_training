@@ -35,10 +35,10 @@ const routes: Routes = [
   {path:'ordersuccess', component:OrderSuccessComponent, canActivate:[AuthGuardService]},
 
 
-  {path:'admin/orders', component:AdminOrdersComponent, canActivate:[AuthGuardService]},
-  {path:'admin/products', component:AdminProductsComponent, canActivate:[AuthGuardService]},
-  {path:'admin/products/new', component:ProductFormComponent, canActivate:[AuthGuardService]},
-  {path:'admin/products/:id', component:ProductFormComponent, canActivate:[AuthGuardService]},
+  {path:'admin/orders', component:AdminOrdersComponent, canActivate:[AuthGuardService, AdminAuthGuardService]},
+  {path:'admin/products', component:AdminProductsComponent, canActivate:[AuthGuardService, AdminAuthGuardService]},
+  {path:'admin/products/new', component:ProductFormComponent, canActivate:[AuthGuardService, AdminAuthGuardService]},
+  {path:'admin/products/:id', component:ProductFormComponent, canActivate:[AuthGuardService, AdminAuthGuardService]},
   // {path:'admin/login', component:AdminLoginComponent, canActivate:[AuthGuardService]},
   // {path:'admin/products', component:ManageListComponent, canActivate:[AuthGuardService]},
   // {path:'admin/products/:id', component:ManageListComponent, canActivate:[AuthGuardService]},

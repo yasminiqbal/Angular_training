@@ -21,6 +21,7 @@ export class AuthService {
     private userService:UserService,
      private afauth: AngularFireAuth, 
      private route: ActivatedRoute) { 
+
     this.user$ = afauth.authState;
   }
 
@@ -34,13 +35,13 @@ export class AuthService {
       this.afauth.signOut();
     }
 
-    // get appUser$(): Observable<AppUser>{
-    //   return this.user$
-    //   .pipe(switchMap((user:UserService) => {
-    //     if (user) return this.userService.get(user.uid);
-    //     return of(null);
-    //   }));
-    // }
+    get appUser$(): Observable<AppUser>{
+      return this.user$
+      .pipe(switchMap((user:any) => {
+        if (user) return this.userService.get(user.uid).valueChanges();
+        return of(null);
+      }));
+    }
       
 }
  

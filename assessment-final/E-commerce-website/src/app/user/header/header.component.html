@@ -3,20 +3,20 @@
     <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
       <mat-icon routerLink="/home">home</mat-icon>
     </button>
-    <span>Hello</span><span>{{auth.user$.displayName}}</span>
-    <!-- <span class="gap"></span> -->
+    <!-- <span>Hello</span><span>{{appUser.name}}</span> -->
+
     <div class="example-button-row" >
   
-      <button mat-button routerLink="/user/login" *ngIf="!(auth.user$ | async)">Login</button>
+      <button mat-button routerLink="/user/login" *ngIf="!(appUser)">Login</button>
       <!-- *ngIf="!appUser" -->
       <!-- <ng-template *ngIf="appUser"> -->
-      <button mat-button routerLink="/home" *ngIf="auth.user$ | async">Today's Deal</button>
+      <button mat-button routerLink="/home" *ngIf="appUser">Today's Deal</button>
    
-      <button mat-button routerLink="/electronics" *ngIf="auth.user$ | async"> Electronics</button>
+      <button mat-button routerLink="/electronics" *ngIf="appUser"> Electronics</button>
    
-      <button mat-button *ngIf="auth.user$ | async">Toys</button>
+      <button mat-button *ngIf="appUser">Toys</button>
    
-      <button mat-button *ngIf="auth.user$ | async">Home & Kitchen</button>
+      <button mat-button *ngIf="appUser">Home & Kitchen</button>
     <!-- </ng-template> -->
   
     </div>
@@ -31,7 +31,7 @@
   
     <span class="example-spacer"></span>
   
-    <button mat-stroked-button [matMenuTriggerFor]="menu" *ngIf="auth.user$ | async">
+    <button mat-stroked-button [matMenuTriggerFor]="menu" *ngIf="appUser">
       <!-- *ngIf="appUser" -->
       <mat-icon>account_circle</mat-icon>Account
     </button>
@@ -43,11 +43,11 @@
         <mat-icon>add shopping cart</mat-icon>My Orders
       </button>
   
-      <button mat-menu-item routerLink="/admin/orders" > 
+      <button *ngIf="appUser.isAdmin" mat-menu-item routerLink="/admin/orders" > 
         <!-- *ngIf="appUser.isAdmin" -->
         <mat-icon>admin_panel_settings</mat-icon>Manage Orders
       </button>
-      <button mat-menu-item routerLink="/admin/products" >
+      <button *ngIf="appUser.isAdmin" mat-menu-item routerLink="/admin/products" >
         <!-- *ngIf="appUser.isAdmin" -->
         <mat-icon>admin_panel_settings</mat-icon>Manage Products
       </button>
@@ -57,7 +57,7 @@
   
     </mat-menu>
     <span class="gap"></span>
-    <button mat-stroked-button routerLink="/shoppingcart" *ngIf="auth.user$ | async">
+    <button mat-stroked-button routerLink="/shoppingcart" *ngIf="appUser">
       <!-- *ngIf="appUser" -->
       <mat-icon>shopping_cart</mat-icon>Checkout
     </button>

@@ -7,9 +7,9 @@
     </a>
     <a *ngFor="let c of categories$" 
     routerLink="/electronics" 
-    [queryParams]="{ catergory: c.name}" 
+    [queryParams]="{ catergory: c.$key |async}" 
     class="list-group-item list-group-item-action"
-    [class.active]="category === c.name">
+    [class.active]="category === c.$key">
       {{c.name}}
     </a>
   </div>
