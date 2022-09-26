@@ -16,7 +16,8 @@ export class ApiService {
 
   getAll(){
     // return this.http.get<any>("http://localhost:3000/productList/");
-    return this.db.list<any>("/productList");
+    // return this.db.list<any>("/productList");
+    return this.http.get<any>("https://e-commerce-9e675-default-rtdb.firebaseio.com/productList.json")
   }
 
   get(id){
@@ -33,7 +34,7 @@ export class ApiService {
     
   // }
 
-  deleteProduct(id:number){
+  deleteProduct(id:string){
     return this.http.delete<any>("http://localhost:3000/productList/"+id);
     // return this.http.put<any>("https://e-commerce-9e675-default-rtdb.firebaseio.com/admin/productList/"+id);
   }

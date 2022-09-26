@@ -12,10 +12,11 @@ import { ProductService } from 'src/app/services/product.service';
   templateUrl: './product-form.component.html',
   styleUrls: ['./product-form.component.css']
 })
-export class ProductFormComponent implements OnInit {
+export class ProductFormComponent {
+
   categories$;
   product:any = {};
-  id;
+  id:any;
   actionBtn: string = 'Save'
 
 
@@ -26,13 +27,13 @@ export class ProductFormComponent implements OnInit {
     private productService: ProductService 
     )
      { 
-      categoryService.getAll().valueChanges().subscribe(res => this.categories$ = res);
+      this.categories$ = categoryService.getAll().valueChanges();
 
       this.id = this.route.snapshot.paramMap.get('id')
       // console.log(this.id)
       
       if (this.id) 
-      { this.productService.get(this.id).subscribe(p => this.product = p);}
+      { this.productService.get(this.id).pipe(take(1)).subscribe(p => this.product = p);}
       // console.log(this.product)
   }
 
@@ -42,7 +43,7 @@ export class ProductFormComponent implements OnInit {
         this.productService.update(this.id, product);
       }
       else {this.productService.create(product);}
-
+      
       this.router.navigate(['/admin/products']);
     
   }
@@ -53,9 +54,6 @@ export class ProductFormComponent implements OnInit {
     this.productService.delete(this.id);
     this.router.navigate(['/admin/products']);
     
-  }
-
-  ngOnInit(): void {   
   }
 
 }

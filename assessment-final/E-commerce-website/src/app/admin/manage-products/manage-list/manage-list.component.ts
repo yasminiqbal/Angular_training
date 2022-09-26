@@ -18,7 +18,7 @@ export class ManageListComponent implements OnInit {
   displayedColumns: string[] = ["id",
     "productName",
     "category",
-    "Comment",
+    "description",
     "freshness",
     "price",
     "imgPath",
@@ -51,7 +51,7 @@ export class ManageListComponent implements OnInit {
   }
 
   getAllProducts() {
-    this.api.getAll().valueChanges()
+    this.api.getAll()
     .subscribe(
       {
         next: (res) => {

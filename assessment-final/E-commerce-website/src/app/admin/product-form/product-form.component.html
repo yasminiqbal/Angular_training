@@ -19,7 +19,7 @@
                         Category
                     </label>
                     <select #category="ngModel" [(ngModel)]="product.category" name="category" id="category" class="form-control" required>
-                        <option *ngFor="let c of categories$ " [value]="c.name">
+                        <option *ngFor="let c of categories$ |async" [value]="c.name">
                             {{c.name}}
                         </option>
                     </select>

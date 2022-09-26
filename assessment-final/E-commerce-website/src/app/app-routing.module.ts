@@ -26,10 +26,9 @@ const routes: Routes = [
     path:'home', component:HomeDashboardComponent
   },
   {path:'electronics', component:ElectronicsComponent},
-  {path:'shoppingcart', component:ShoppingCartComponent},
   {path:'user/login', component:LoginComponent},
 
-
+  {path:'shoppingcart', component:ShoppingCartComponent, canActivate:[AuthGuardService]},
   {path:'my/orders', component:MyOrdersComponent, canActivate:[AuthGuardService]},
   {path:'checkout', component:CheckoutComponent, canActivate:[AuthGuardService]},
   {path:'ordersuccess', component:OrderSuccessComponent, canActivate:[AuthGuardService]},
@@ -43,7 +42,7 @@ const routes: Routes = [
   // {path:'admin/products', component:ManageListComponent, canActivate:[AuthGuardService]},
   // {path:'admin/products/:id', component:ManageListComponent, canActivate:[AuthGuardService]},
    
-  {path:'admin/electronics', component:ManageElectronicsComponent, canActivate:[AuthGuardService]},
+  {path:'admin/electronics', component:ManageElectronicsComponent, canActivate:[AuthGuardService,AdminAuthGuardService]},
 ];
 
 @NgModule({ 

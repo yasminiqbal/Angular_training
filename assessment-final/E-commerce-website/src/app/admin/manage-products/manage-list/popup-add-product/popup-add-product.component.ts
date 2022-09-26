@@ -28,8 +28,6 @@ export class PopupAddProductComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public editData: any,
     private dialogRef: MatDialogRef<PopupAddProductComponent>) { 
 
-      this.id =  this.route.snapshot.paramMap.get('id');
-      if (this.id) this.api.get(this.id).valueChanges().subscribe(p => this.singleProduct = p );
     }
 
 
@@ -52,7 +50,7 @@ export class PopupAddProductComponent implements OnInit {
       this.actionBtn = 'Update'
       this.productForm.controls['productName'].setValue(this.editData.productName);
       this.productForm.controls['category'].setValue(this.editData.category);
-      this.productForm.controls['Comment'].setValue(this.editData.Comment);
+      this.productForm.controls['description'].setValue(this.editData.Comment);
       this.productForm.controls['freshness'].setValue(this.editData.freshness);
       this.productForm.controls['price'].setValue(this.editData.price);
       this.productForm.controls['imgPath'].setValue(this.editData.imgPath);
