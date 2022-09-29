@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 
@@ -9,11 +10,16 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 export class ShoppingCartComponent implements OnInit {
   cart$;
 
+
   constructor(private shoppingCartService : ShoppingCartService) { }
 
   async ngOnInit() {
-    (await (await this.shoppingCartService.getCart()).subscribe(cart => this.cart$ = cart));
-    
+   await (await this.shoppingCartService.getCart()).subscribe(cart => this.cart$ = cart);
+
   }
+
+  // clearCart(){
+  //   this.shoppingCartService.clearCart()
+  // }
  
 }

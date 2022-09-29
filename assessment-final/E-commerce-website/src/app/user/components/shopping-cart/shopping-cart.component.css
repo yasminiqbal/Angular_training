@@ -1,0 +1,12 @@
+.width-qty{
+    width: 230px;
+}
+.width-price{
+    width: 200px;
+}
+.thumbnail{
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    background-size: cover;
+}

@@ -21,7 +21,7 @@
   
     </div>
   
-    <form class="example-form">
+    <form class="example-form" >
       <input type="text" placeholder="Search">
       <button mat-stroked-button>
         <mat-icon>search</mat-icon>
@@ -64,7 +64,7 @@
 
       <mat-icon>shopping_cart</mat-icon>Checkout
       <span class="badge rounded-pill bg-danger " *ngIf="cart$ |async as cart">
-        {{cart.totalItemsCount}}
+        {{ cart.totalItemsCount }}
       </span>
     </button>
   

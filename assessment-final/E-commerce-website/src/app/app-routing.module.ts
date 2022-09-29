@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 import {HomeDashboardComponent} from './user/components/home-dashboard/home-dashboard.component';
 import {ElectronicsComponent} from './user/components/dashboard/electronics/electronics.component';
-import { ManageElectronicsComponent } from './admin/manage-products/manage-electronics/manage-electronics.component';
 import { ManageListComponent } from './admin/manage-products/manage-list/manage-list.component';
 import { ShoppingCartComponent } from './user/components/shopping-cart/shopping-cart.component';
 import { MyOrdersComponent } from './user/components/my-orders/my-orders.component';
@@ -20,7 +19,7 @@ import { AdminProductsComponent } from './admin/admin-products/admin-products.co
 
 const routes: Routes = [
   {
-    path:'', redirectTo:'/home', pathMatch:'full'
+    path:'', redirectTo:'/electronics', pathMatch:'full'
   },
   {
     path:'home', component:HomeDashboardComponent
@@ -42,7 +41,6 @@ const routes: Routes = [
   // {path:'admin/products', component:ManageListComponent, canActivate:[AuthGuardService]},
   // {path:'admin/products/:id', component:ManageListComponent, canActivate:[AuthGuardService]},
    
-  {path:'admin/electronics', component:ManageElectronicsComponent, canActivate:[AuthGuardService,AdminAuthGuardService]},
 ];
 
 @NgModule({ 

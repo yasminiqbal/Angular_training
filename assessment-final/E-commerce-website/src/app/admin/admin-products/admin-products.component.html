@@ -1,12 +1,19 @@
 <div class="container p-5">
-    <a routerLink="/admin/products/new" class="btn btn-warning">Add Product</a>
-</div>
+    <p>
+        <a routerLink="/admin/products/new" class="btn btn-warning">Add Product</a>
 
-<div class="container">
-    <table class="table">
+    </p>
+    <p>
+        <input 
+        #query
+        (keyup)="filter(query.value)"
+        type="text" class="form-control" placeholder="filter by categories">
+    </p>
+    <table>
         <thead>
             <tr>
-                <th scope="col">ID</th>
+                <th>ID</th>
+                <th>Image</th>
                 <th>Product Name</th>
                 <th>Categories</th>
                 <th>Price</th>
@@ -15,18 +22,19 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let p of products ">
-                <th scope="row"> {{p.$key}}</th>
+            <tr *ngFor="let p of filteredProducts ">
+                <th> {{p.id}}</th>
+                <td><div [style.backgroundImage]="'url('+ p.imgPath + ')'" class="thumbnail"></div></td>
                 <td>{{p.prodName}}</td>
                 <td>{{p.category}}</td>
                 <td>{{p.price}}</td>
                 <td>
-                    <a [routerLink]="['/admin/products/{{p.$key}}']"><mat-icon>edit</mat-icon></a>
+                    <a [routerLink]="['/admin/products/',p.id]"><mat-icon>edit</mat-icon></a>
                 </td>
             </tr>
         </tbody>
+    
     </table>
 
-    
 </div>
   

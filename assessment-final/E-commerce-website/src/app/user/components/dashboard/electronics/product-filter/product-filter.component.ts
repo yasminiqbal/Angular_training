@@ -3,7 +3,6 @@ import { CategoriesService } from 'src/app/services/categories.service';
 
 
 
-
 @Component({
   selector: 'app-product-filter',
   templateUrl: './product-filter.component.html',
@@ -17,11 +16,12 @@ export class ProductFilterComponent implements OnInit {
 
   constructor(private categoryService: CategoriesService)
    {
-     this.categoryService.getAll()
-    .valueChanges().subscribe(cat => this.categories$ = cat);
+    this.categories$ = this.categoryService.getAll()
+    
    }
 
   ngOnInit(): void {
+    
   }
 
   

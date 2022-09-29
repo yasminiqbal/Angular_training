@@ -27,22 +27,24 @@ export class ProductFormComponent {
     private productService: ProductService 
     )
      { 
-      this.categories$ = categoryService.getAll().valueChanges();
+      this.categories$ = categoryService.getAll();
 
       this.id = this.route.snapshot.paramMap.get('id')
       // console.log(this.id)
       
       if (this.id) 
-      { this.productService.get(this.id).pipe(take(1)).subscribe(p => this.product = p);}
+      { 
+        this.actionBtn = 'Update'
+        this.productService.get(this.id).pipe(take(1)).subscribe(p => this.product = p);}
       // console.log(this.product)
   }
 
   save(product){
       if (this.id) {
-        this.actionBtn = 'Update'
         this.productService.update(this.id, product);
       }
-      else {this.productService.create(product);}
+      else {
+        this.productService.create(product);}
       
       this.router.navigate(['/admin/products']);
     

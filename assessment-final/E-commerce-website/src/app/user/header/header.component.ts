@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
    }
 
    async ngOnInit() {
-   this.auth.appUser$.subscribe(appUser => this.appUser = appUser);
+    this.auth.appUser$.subscribe(appUser => this.appUser = appUser);
 
     this.cart$ =  await this.shoppingCartService.getCart();
     

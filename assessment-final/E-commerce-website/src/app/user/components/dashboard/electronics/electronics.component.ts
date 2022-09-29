@@ -10,45 +10,42 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
   templateUrl: './electronics.component.html',
   styleUrls: ['./electronics.component.css']
 })
-export class ElectronicsComponent implements OnInit, OnDestroy{
+export class ElectronicsComponent implements OnInit, OnDestroy {
 
-  products: Products[] = [] ;
-  filteredProducts !: Products[];
-  
+  products: Products[] = [];
+  filteredProducts: Products[] = [];
+
   category: any;
-  cart:any;
+  cart: any;
   subscription!: Subscription;
 
-  constructor(private producService:ProductService,
-    private route: ActivatedRoute, 
-    private shoppingCartService : ShoppingCartService   ) 
-    { 
+  constructor( producService: ProductService,
+     route: ActivatedRoute,
+    private shoppingCartService: ShoppingCartService) {
 
-
-    producService.getAll().valueChanges()
-    .pipe(switchMap((products:any)=> {
-      this.products = products;
-      return route.queryParamMap;
-    }))
-
-      .subscribe(params =>
-        {
-          this.category = params.get('category');
-  
-          this.filteredProducts = (this.category) ? 
-          this.products.filter(p=> p.category === this.category) : 
+    producService.getAll()
+      .pipe(switchMap((products: any) => {
+        this.products = products;
+        return route.queryParamMap;
+      }))
+      .subscribe(params => {
+        this.category = params.get('category');
+        
+        this.filteredProducts = (this.category) ?
+          this.products.filter(p => p.category === this.category) :
           this.products;
-        });
-   
+          
+      });
+
   }
 
-async ngOnInit() {
-  this.subscription = (await this.shoppingCartService.getCart())
-  .subscribe(cart => this.cart = cart);
-}
-ngOnDestroy(): void {
-  
-  this.subscription.unsubscribe();
-}
+  async ngOnInit() {
+    this.subscription = (await this.shoppingCartService.getCart()).subscribe(cart => this.cart = cart);
+  }
+
+  ngOnDestroy(): void {
+
+    this.subscription.unsubscribe();
+  }
 
 }

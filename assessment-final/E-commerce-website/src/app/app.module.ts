@@ -16,7 +16,6 @@ import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ElectronicsComponent } from './user/components/dashboard/electronics/electronics.component';
-import { ManageElectronicsComponent } from './admin/manage-products/manage-electronics/manage-electronics.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { PopupAddProductComponent } from './admin/manage-products/manage-list/popup-add-product/popup-add-product.component';
 import {MatInputModule} from '@angular/material/input';
@@ -57,6 +56,8 @@ import { ProductService } from './services/product.service';
 import { ProductFilterComponent } from './user/components/dashboard/electronics/product-filter/product-filter.component';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { ShoppingCartService } from './services/shopping-cart.service';
+import { ProductQuantityComponent } from './product-quantity/product-quantity.component';
+
 
 
 @NgModule({
@@ -67,7 +68,6 @@ import { ShoppingCartService } from './services/shopping-cart.service';
     HomeDashboardComponent,
     AdminLoginComponent,
     ElectronicsComponent,
-    ManageElectronicsComponent,
     PopupAddProductComponent,
     AdminDialogueComponent,
     ManageListComponent,
@@ -81,6 +81,7 @@ import { ShoppingCartService } from './services/shopping-cart.service';
     ProductFormComponent,
     ProductFilterComponent,
     ProductCardComponent,
+    ProductQuantityComponent,
   ],
   imports: [
     BrowserModule,
@@ -113,6 +114,7 @@ import { ShoppingCartService } from './services/shopping-cart.service';
     FormsModule
 
   ],
+  
   
   providers: [
     ApiService,
