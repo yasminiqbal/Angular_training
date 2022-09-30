@@ -12,16 +12,11 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSidenavModule} from '@angular/material/sidenav';
-import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ElectronicsComponent } from './user/components/dashboard/electronics/electronics.component';
 import {MatDialogModule} from '@angular/material/dialog';
-import { PopupAddProductComponent } from './admin/manage-products/manage-list/popup-add-product/popup-add-product.component';
 import {MatInputModule} from '@angular/material/input';
-import { AdminDialogueComponent } from './admin/admin-login/admin-dialogue/admin-dialogue.component';
 import {MatSelectModule} from '@angular/material/select';
-import { ManageListComponent } from './admin/manage-products/manage-list/manage-list.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule} from '@angular/material/core';
 import {MatRadioModule} from '@angular/material/radio';
@@ -47,16 +42,16 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { AuthService } from './services/auth.service';
 import { UserService } from './services/user.service';
 import { AuthGuardService } from './services/auth-guard.service';
-import { ApiService } from './services/api.service';
 import { AdminAuthGuardService } from './services/admin-auth-guard.service';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
 import { CategoriesService } from './services/categories.service';
 import { ProductService } from './services/product.service';
-import { ProductFilterComponent } from './user/components/dashboard/electronics/product-filter/product-filter.component';
+import { ProductFilterComponent } from './user/components/products/product-filter/product-filter.component';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { ShoppingCartService } from './services/shopping-cart.service';
 import { ProductQuantityComponent } from './product-quantity/product-quantity.component';
+import { ProductsComponent } from './user/components/products/products.component';
 
 
 
@@ -66,11 +61,6 @@ import { ProductQuantityComponent } from './product-quantity/product-quantity.co
     HeaderComponent,
     FooterComponent,
     HomeDashboardComponent,
-    AdminLoginComponent,
-    ElectronicsComponent,
-    PopupAddProductComponent,
-    AdminDialogueComponent,
-    ManageListComponent,
     ShoppingCartComponent,
     CheckoutComponent,
     OrderSuccessComponent,
@@ -82,6 +72,7 @@ import { ProductQuantityComponent } from './product-quantity/product-quantity.co
     ProductFilterComponent,
     ProductCardComponent,
     ProductQuantityComponent,
+    ProductsComponent,
   ],
   imports: [
     BrowserModule,
@@ -117,7 +108,6 @@ import { ProductQuantityComponent } from './product-quantity/product-quantity.co
   
   
   providers: [
-    ApiService,
     AuthService,
     AuthGuardService,
     UserService,
