@@ -16,7 +16,11 @@ export class ShoppingCartService {
   {
     let cartId = await this.getOrCreateCartId();
     return this.db.object('/shopping-carts/' + cartId).snapshotChanges()
-    .pipe(map((x:any) => new ShoppingCart(x.payload.val().items)));
+    .pipe(map((result:any) => {
+      let key = result.key;
+      let items = key? result.payload.val().items : {};
+      return new ShoppingCart(items);
+    }));
   }
  
 
@@ -29,10 +33,10 @@ export class ShoppingCartService {
     this.updateItem(product, -1)
   }
 
-  // async clearCart(){
-  //   let cartId =  await this.getOrCreateCartId();
-  //   this.db.object('/shopping-carts/'+cartId + '/items').remove();
-  // }
+  async clearCart(){
+    let cartId =  await this.getOrCreateCartId();
+    this.db.object('/shopping-carts/'+cartId + '/items').remove();
+  }
 
 
   private create() {
