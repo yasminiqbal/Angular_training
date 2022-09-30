@@ -52,6 +52,11 @@ import { ProductCardComponent } from './product-card/product-card.component';
 import { ShoppingCartService } from './services/shopping-cart.service';
 import { ProductQuantityComponent } from './product-quantity/product-quantity.component';
 import { ProductsComponent } from './user/components/products/products.component';
+import { OrderService } from './services/order.service';
+import {MatCardModule} from '@angular/material/card';
+import {MatListModule} from '@angular/material/list';
+import { ShoppingCartSummaryComponent } from './user/components/checkout/shopping-cart-summary/shopping-cart-summary.component';
+import { ShippingFormComponent } from './user/components/checkout/shipping-form/shipping-form.component';
 
 
 
@@ -73,6 +78,8 @@ import { ProductsComponent } from './user/components/products/products.component
     ProductCardComponent,
     ProductQuantityComponent,
     ProductsComponent,
+    ShoppingCartSummaryComponent,
+    ShippingFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -102,7 +109,9 @@ import { ProductsComponent } from './user/components/products/products.component
     AngularFireDatabaseModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     MatAutocompleteModule,
-    FormsModule
+    MatCardModule,
+    MatListModule
+    
 
   ],
   
@@ -114,7 +123,8 @@ import { ProductsComponent } from './user/components/products/products.component
     AdminAuthGuardService,
     CategoriesService,
     ProductService,
-    ShoppingCartService
+    ShoppingCartService,
+    OrderService
     
   ],
   bootstrap: [AppComponent]

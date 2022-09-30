@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AppUser } from 'src/app/models/app-user';
-import { ShoppingCart } from 'src/app/models/shopping-cart';
+import { AppUser } from 'src/app/models/app-user.model';
+import { ShoppingCart } from 'src/app/models/shopping-cart.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 
