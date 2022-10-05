@@ -7,23 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './user/header/header.component';
 import { FooterComponent } from './user/footer/footer.component';
 import { HomeDashboardComponent } from './user/components/home-dashboard/home-dashboard.component';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatInputModule} from '@angular/material/input';
-import {MatSelectModule} from '@angular/material/select';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import { MatNativeDateModule} from '@angular/material/core';
-import {MatRadioModule} from '@angular/material/radio';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import {MatTableModule} from '@angular/material/table';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatSortModule} from '@angular/material/sort';
 import { ShoppingCartComponent } from './user/components/shopping-cart/shopping-cart.component';
 import { CheckoutComponent } from './user/components/checkout/checkout.component';
 import { OrderSuccessComponent } from './user/components/order-success/order-success.component';
@@ -38,7 +23,6 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from '../environments/environment';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { AuthService } from './services/auth.service';
 import { UserService } from './services/user.service';
 import { AuthGuardService } from './services/auth-guard.service';
@@ -53,13 +37,13 @@ import { ShoppingCartService } from './services/shopping-cart.service';
 import { ProductQuantityComponent } from './product-quantity/product-quantity.component';
 import { ProductsComponent } from './user/components/products/products.component';
 import { OrderService } from './services/order.service';
-import {MatCardModule} from '@angular/material/card';
-import {MatListModule} from '@angular/material/list';
 import { ShoppingCartSummaryComponent } from './user/components/checkout/shopping-cart-summary/shopping-cart-summary.component';
 import { ShippingFormComponent } from './user/components/checkout/shipping-form/shipping-form.component';
 import { ProductDetailComponent } from './user/components/products/product-detail/product-detail.component';
 import { ProductItemComponent } from './user/components/products/product-detail/product-item/product-item.component';
 import { ProductItemDetailComponent } from './user/components/products/product-detail/product-item-detail/product-item-detail.component';
+import { MaterialModule } from 'src/material-module';
+
 
 
 
@@ -86,38 +70,22 @@ import { ProductItemDetailComponent } from './user/components/products/product-d
     ProductDetailComponent,
     ProductItemComponent,
     ProductItemDetailComponent,
+
+   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    HttpClientModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatButtonModule,
-    MatMenuModule,
-    MatSidenavModule,
-    MatFormFieldModule,
     FormsModule,
-    MatDialogModule,
-    MatInputModule,
-    MatSelectModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatRadioModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
+    HttpClientModule,
     AngularFireAuthModule,
     AngularFireStorageModule,
     AngularFirestoreModule,
     AngularFireDatabaseModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    MatAutocompleteModule,
-    MatCardModule,
-    MatListModule
-    
+    MaterialModule,
 
   ],
   

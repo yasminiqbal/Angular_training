@@ -18,6 +18,7 @@ export class ProductFormComponent {
   product:any = {};
   id:any;
   actionBtn: string = 'Save'
+  actionBtnClose: string = 'Close'
 
 
   constructor(
@@ -35,6 +36,7 @@ export class ProductFormComponent {
       if (this.id) 
       { 
         this.actionBtn = 'Update'
+        this.actionBtnClose = 'Delete'
         this.productService.get(this.id).pipe(take(1)).subscribe(p => this.product = p);}
       // console.log(this.product)
   }
@@ -51,11 +53,19 @@ export class ProductFormComponent {
   }
 
   delete(){
+   if (!this.id) {
+    this.close();
+   }
+   else
     if (!confirm("Are you sure you want to delete this product?")) return;
-      
+    
     this.productService.delete(this.id);
     this.router.navigate(['/admin/products']);
-    
+  }
+  
+
+  private close(){
+    this.router.navigate(['/admin/products']);
   }
 
 }

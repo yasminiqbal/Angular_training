@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   appUser !: AppUser;
   cart$!:Observable<ShoppingCart>;
   
+  
   constructor(private auth:AuthService,
     private shoppingCartService: ShoppingCartService,
     private cdr: ChangeDetectorRef) {

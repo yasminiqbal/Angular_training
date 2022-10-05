@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { ActivatedRoute } from '@angular/router';
-import { map, Observable } from 'rxjs';
-import { ProductDetail } from 'src/app/models/productDetail.model';
+import { map } from 'rxjs';
 import { Products } from 'src/app/models/products.model';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -14,14 +12,13 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductDetailComponent implements OnInit {
 
-  product:any;
+  product!:Products;
   productIdFromRoute:any;
   
   
 
   constructor(private productService: ProductService,
-    private route: ActivatedRoute,
-    private db: AngularFireDatabase) { }
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
 

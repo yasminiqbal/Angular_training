@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ShoppingCart } from 'src/app/models/shopping-cart.model';
-import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
+import { Component, Input } from '@angular/core';
+import { Products } from 'src/app/models/products.model';
+
 
 @Component({
   selector: 'app-product-item-detail',
@@ -9,14 +9,11 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 })
 export class ProductItemDetailComponent {
 
-  @Input('product') product!:any;
+  @Input('product') product!:Products;
 
-  @Input('shopping-cart') shoppingCart !: ShoppingCart;
+  constructor() { }
 
-  constructor(private cartService: ShoppingCartService) { }
 
-  addToCart(){
-    this.cartService.addToCart(this.product );
+  ngOnInit(): void {
   }
-
 }

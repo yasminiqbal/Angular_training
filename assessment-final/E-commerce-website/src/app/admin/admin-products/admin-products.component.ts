@@ -1,7 +1,7 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
 import { Products } from 'src/app/models/products.model';
-import {  Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -9,33 +9,28 @@ import {  Subscription } from 'rxjs';
   templateUrl: './admin-products.component.html',
   styleUrls: ['./admin-products.component.css']
 })
-export class AdminProductsComponent implements OnInit, OnDestroy {
+export class AdminProductsComponent implements OnDestroy {
 
-  products!: Products[] ;
+  products!: Products[];
   filteredProducts: any[] = [];
   subscription!: Subscription;
- 
 
 
-  constructor(private productService: ProductService ) { 
+  constructor(private productService: ProductService) {
 
     this.subscription = this.productService.getAll()
-    .subscribe((prod:any) => this.filteredProducts = this.products = prod);
+      .subscribe((prod: any) => this.filteredProducts = this.products = prod);
 
   }
-  
-  filter(query:string){
-    this.filteredProducts = (query)?
-    this.products.filter(p => (p.category).toLowerCase().includes(query.toLowerCase())) : 
-    this.products;
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
-  ngOnInit(): void {
-   
+  filter(query: string) {
+    this.filteredProducts = (query) ?
+      this.products.filter(p => (p.category).toLowerCase().includes(query.toLowerCase())) :
+      this.products;
   }
-
- ngOnDestroy(): void {
-   this.subscription.unsubscribe();
- }
 
 }

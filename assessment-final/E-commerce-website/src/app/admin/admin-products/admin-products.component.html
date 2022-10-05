@@ -1,7 +1,10 @@
-<div class="container p-5">
-    <p>
-        <a routerLink="/admin/products/new" class="btn btn-warning">Add Product</a>
 
+<div class="container p-5">
+    <h1>
+        Product Details
+    </h1>
+    <p>
+      <a routerLink="/admin/products/new" class="btn btn-warning align">Add Product</a>
     </p>
     <p>
         <input 
@@ -9,6 +12,7 @@
         (keyup)="filter(query.value)"
         type="text" class="form-control" placeholder="filter by categories">
     </p>
+
     <table>
         <thead>
             <tr>
@@ -17,7 +21,7 @@
                 <th>Product Name</th>
                 <th>Categories</th>
                 <th>Price</th>
-                <th>Edit Action</th>
+                <th>Action</th>
             
             </tr>
         </thead>
@@ -29,12 +33,12 @@
                 <td>{{p.category}}</td>
                 <td>{{p.price}}</td>
                 <td>
-                    <a [routerLink]="['/admin/products/',p.id]"><mat-icon>edit</mat-icon></a>
+                    <a [routerLink]="['/admin/products/',p.id]"><mat-icon>settings</mat-icon></a>
                 </td>
             </tr>
         </tbody>
     
     </table>
-
+ 
 </div>
   
