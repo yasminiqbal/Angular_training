@@ -12,6 +12,7 @@ import { AdminAuthGuardService } from './services/admin-auth-guard.service';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { ProductsComponent } from './user/components/products/products.component';
+import { ProductDetailComponent } from './user/components/products/product-detail/product-detail.component';
 
 
 
@@ -20,6 +21,7 @@ const routes: Routes = [
     path:'', redirectTo:'/products', pathMatch:'full'
   },
   {path:'products', component:ProductsComponent},
+  {path:'products/:id', component:ProductDetailComponent},
   {path:'home', component:HomeDashboardComponent },
   {path:'user/login', component:LoginComponent},
 

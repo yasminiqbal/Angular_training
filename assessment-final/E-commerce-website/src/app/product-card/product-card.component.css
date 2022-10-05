@@ -17,3 +17,7 @@
 .card-body{
    height: 350;
 }
+
+.card-title{
+    cursor: pointer;
+}

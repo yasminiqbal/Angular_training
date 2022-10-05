@@ -5,9 +5,7 @@ export class Order{
 
     datePlaced !: number;
     items !: any[];
-    prodName !: string[];
-    imgPath !: string[];
-    price !: number[];
+
 
     constructor(public userId: string, public shipping: any,
         shoppingCart: ShoppingCart) {
@@ -18,9 +16,9 @@ export class Order{
         {
           return {
             product: {
-              prodName : i.prodName,
-              imgPath : i.imgPath,
-              price : i.price
+              prodName : i.product.prodName,
+              imgPath : i.product.imgPath,
+              price : i.product.price
             },
             quantity: i.quantity,
             totalPrice: i.totalPrice

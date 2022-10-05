@@ -57,6 +57,9 @@ import {MatCardModule} from '@angular/material/card';
 import {MatListModule} from '@angular/material/list';
 import { ShoppingCartSummaryComponent } from './user/components/checkout/shopping-cart-summary/shopping-cart-summary.component';
 import { ShippingFormComponent } from './user/components/checkout/shipping-form/shipping-form.component';
+import { ProductDetailComponent } from './user/components/products/product-detail/product-detail.component';
+import { ProductItemComponent } from './user/components/products/product-detail/product-item/product-item.component';
+import { ProductItemDetailComponent } from './user/components/products/product-detail/product-item-detail/product-item-detail.component';
 
 
 
@@ -80,6 +83,9 @@ import { ShippingFormComponent } from './user/components/checkout/shipping-form/
     ProductsComponent,
     ShoppingCartSummaryComponent,
     ShippingFormComponent,
+    ProductDetailComponent,
+    ProductItemComponent,
+    ProductItemDetailComponent,
   ],
   imports: [
     BrowserModule,

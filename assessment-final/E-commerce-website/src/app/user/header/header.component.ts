@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AppUser } from 'src/app/models/app-user.model';
 import { ShoppingCart } from 'src/app/models/shopping-cart.model';
@@ -10,20 +10,24 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, AfterViewInit {
 
   appUser !: AppUser;
   cart$!:Observable<ShoppingCart>;
   
   constructor(private auth:AuthService,
-    private shoppingCartService: ShoppingCartService) {
+    private shoppingCartService: ShoppingCartService,
+    private cdr: ChangeDetectorRef) {
    }
 
    async ngOnInit() {
-    this.auth.appUser$.subscribe(appUser => this.appUser = appUser);
+    this.auth.appUser$.subscribe((appUser:any) => this.appUser = appUser);
 
-    this.cart$ =  await this.shoppingCartService.getCart();
-    
+    this.cart$ =  await this.shoppingCartService.getCart();  
+   }
+
+   ngAfterViewInit(): void {
+    this.cdr.detectChanges();
    }
 
 

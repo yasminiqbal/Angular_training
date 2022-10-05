@@ -16,6 +16,6 @@ export class AdminAuthGuardService implements CanActivate{
 
  canActivate(): Observable<boolean> {
   return this.auth.appUser$
-  .pipe(map((appUser:any) => appUser.isAdmin));
+  .pipe(map((appUser:any) => appUser && appUser.isAdmin || null));
  }
 }

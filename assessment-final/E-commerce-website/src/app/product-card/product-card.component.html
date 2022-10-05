@@ -1,8 +1,9 @@
 <div *ngIf="product.prodName" class="card">
-  <img *ngIf="product.imgPath" class="card-img-top" [src]="product.imgPath" alt="{{product.prodName}}">
+  <img *ngIf="product.imgPath" class="card-img-top" [src]="product.imgPath" alt="{{product.prodName}} ">
 
     <div class="card-body">
-      <h2 class="card-title">{{product.prodName}}</h2>
+      <h2 class="card-title" routerLink="/products/{{product.id}}">
+        {{product.prodName}}</h2>
       <!-- <p class="card-text"> {{product.description}}</p> -->
       <p class="card-text"> {{product.price | currency:'INR'}}</p>
 

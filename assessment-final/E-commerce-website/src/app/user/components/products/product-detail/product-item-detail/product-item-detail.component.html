@@ -1,0 +1,27 @@
+<div>
+    <h1>{{product.prodName}}</h1>
+
+</div>
+<div>
+
+    <h3>{{product.description}}</h3>
+</div>
+
+<div>
+    <h2>{{product.price |currency:'INR'}} </h2>
+</div>
+
+<!-- <div *ngIf="shoppingCart" >
+    <button  
+    *ngIf="shoppingCart.getQuantity(product) === 0; else updateQuantity" 
+    (click)="addToCart()"
+    class="btn btn-secondary">
+      Add To Cart
+    </button>
+
+    <ng-template #updateQuantity>
+      <app-product-quantity [product]="product" [shopping-cart]="shoppingCart">
+      </app-product-quantity>
+      
+    </ng-template>
+  </div> -->
