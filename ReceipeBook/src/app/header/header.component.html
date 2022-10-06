@@ -6,30 +6,24 @@
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link "  href="#">Recipe</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Shopping List</a>
-          </li>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+          <li><a routerLink="/" (click)="onSelect('recipe')">Recipes</a></li>
+          <span class="space"></span>
+        <li><a routerLink="/" (click)="onSelect('shopping-list')">Shopping List</a></li>
         </ul>
 
           <ul class="nav navbar-nav navbar-right mx-5">
-          <li class=" nav-item dropdown ">
+          <li class=" nav-item dropdown " appDropdown>
             <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Manage
             </a>
-            <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Save Data</a></li>
-              <li><a class="dropdown-item" href="#">Fetch Data</a></li>
+            <ul class="dropdown-menu "  aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" routerLink="#">Save Data</a></li>
+              <li><a class="dropdown-item" routerLink="#">Fetch Data</a></li>
 
             </ul>
           </li>
         </ul>
-
-        
-        
       </div>
     </div>
   </nav>
