@@ -12,23 +12,29 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 })
 export class HeaderComponent implements OnInit, AfterViewInit {
 
-  appUser !: AppUser;
+  appUser : AppUser = {
+    uid: '',
+    name: '',
+    email: '',
+    isAdmin: false
+  };
   cart$!:Observable<ShoppingCart>;
   
   
   constructor(private auth:AuthService,
     private shoppingCartService: ShoppingCartService,
     private cdr: ChangeDetectorRef) {
+
+      this.auth.appUser$.subscribe((appUser:any) => this.appUser = appUser );
    }
 
    async ngOnInit() {
-    this.auth.appUser$.subscribe((appUser:any) => this.appUser = appUser);
-
     this.cart$ =  await this.shoppingCartService.getCart();  
    }
 
    ngAfterViewInit(): void {
     this.cdr.detectChanges();
+    console.log(this.appUser);
    }
 
 
