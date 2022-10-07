@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
+import { ShoppingCartService } from 'src/services/shopping-cart.service';
 
 @Component({
   selector: 'app-shopping-cart',

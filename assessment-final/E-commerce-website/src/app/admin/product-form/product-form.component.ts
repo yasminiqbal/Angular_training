@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { take } from 'rxjs/operators';
-import { CategoriesService } from 'src/app/services/categories.service';
-import { ProductService } from 'src/app/services/product.service';
+import { CategoriesService } from 'src/services/categories.service';
+import { ProductService } from 'src/services/product.service';
 
 
 
@@ -31,14 +31,14 @@ export class ProductFormComponent {
       this.categories$ = categoryService.getAll();
 
       this.id = this.route.snapshot.paramMap.get('id')
-      // console.log(this.id)
+     
       
       if (this.id) 
       { 
         this.actionBtn = 'Update'
         this.actionBtnClose = 'Delete'
         this.productService.get(this.id).pipe(take(1)).subscribe(p => this.product = p);}
-      // console.log(this.product)
+      
   }
 
   save(product){

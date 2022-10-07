@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OrderService } from 'src/app/services/order.service';
+import { OrderService } from 'src/services/order.service';
 
 @Component({
   selector: 'app-admin-orders',
@@ -12,7 +12,7 @@ export class AdminOrdersComponent implements OnInit {
 
   constructor(private orderService : OrderService) { 
     this.orders$ = orderService.getOrders().valueChanges();
-    // console.log(this.orders$);
+
   }
 
   ngOnInit(): void {

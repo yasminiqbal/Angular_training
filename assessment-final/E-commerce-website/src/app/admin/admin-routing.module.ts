@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AdminAuthGuardService } from '../services/admin-auth-guard.service';
-import { AuthGuardService } from '../services/auth-guard.service';
+import { AdminAuthGuardService } from '../../services/admin-auth-guard.service';
+import { AuthGuardService } from '../../services/auth-guard.service';
 import { AdminOrdersComponent } from './admin-orders/admin-orders.component';
 import { AdminProductsComponent } from './admin-products/admin-products.component';
 import { ProductFormComponent } from './product-form/product-form.component';

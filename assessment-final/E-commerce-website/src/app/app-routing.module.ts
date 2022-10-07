@@ -7,8 +7,8 @@ import { CheckoutComponent } from './user/components/checkout/checkout.component
 import { OrderSuccessComponent } from './user/components/order-success/order-success.component';
 import { LoginComponent } from './user/components/login/login.component';
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
-import { AuthGuardService } from './services/auth-guard.service';
-import { AdminAuthGuardService } from './services/admin-auth-guard.service';
+import { AuthGuardService } from '../services/auth-guard.service';
+import { AdminAuthGuardService } from '../services/admin-auth-guard.service';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { ProductsComponent } from './user/components/products/products.component';
@@ -30,11 +30,7 @@ const routes: Routes = [
   {path:'check-out', component:CheckoutComponent, canActivate:[AuthGuardService]},
   {path:'order-success/:id', component:OrderSuccessComponent, canActivate:[AuthGuardService]},
 
-
-  {path:'admin/orders', component:AdminOrdersComponent, canActivate:[AuthGuardService, AdminAuthGuardService]},
-  {path:'admin/products', component:AdminProductsComponent, canActivate:[AuthGuardService, AdminAuthGuardService]},
-  {path:'admin/products/new', component:ProductFormComponent, canActivate:[AuthGuardService, AdminAuthGuardService]},
-  {path:'admin/products/:id', component:ProductFormComponent, canActivate:[AuthGuardService, AdminAuthGuardService]},
+  {path: 'admin', loadChildren:() => import('./admin/admin.module').then(x=>x.AdminModule)}
  
 ];
 

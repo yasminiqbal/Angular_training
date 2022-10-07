@@ -1,9 +1,9 @@
 import { AfterViewInit, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AppUser } from 'src/app/models/app-user.model';
-import { ShoppingCart } from 'src/app/models/shopping-cart.model';
-import { AuthService } from 'src/app/services/auth.service';
-import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
+import { AppUser } from 'src/models/app-user.model';
+import { ShoppingCart } from 'src/models/shopping-cart.model';
+import { AuthService } from 'src/services/auth.service';
+import { ShoppingCartService } from 'src/services/shopping-cart.service';
 
 @Component({
   selector: 'app-header',
@@ -34,7 +34,6 @@ export class HeaderComponent implements OnInit, AfterViewInit {
 
    ngAfterViewInit(): void {
     this.cdr.detectChanges();
-    console.log(this.appUser);
    }
 
 

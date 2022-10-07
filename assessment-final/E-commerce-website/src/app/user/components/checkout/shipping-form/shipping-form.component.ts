@@ -1,10 +1,10 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Order } from 'src/app/models/order.model';
-import { ShoppingCart } from 'src/app/models/shopping-cart.model';
-import { AuthService } from 'src/app/services/auth.service';
-import { OrderService } from 'src/app/services/order.service';
+import { Order } from 'src/models/order.model';
+import { ShoppingCart } from 'src/models/shopping-cart.model';
+import { AuthService } from 'src/services/auth.service';
+import { OrderService } from 'src/services/order.service';
 
 @Component({
   selector: 'app-shipping-form',
@@ -37,7 +37,6 @@ export class ShippingFormComponent implements OnInit, OnDestroy {
   async placeOrder() {
 
     let order = new Order(this.userId, this.shipping, this.cart);
-    console.log(order)
     let result = await this.orderService.placeOrder(order);
     this.router.navigate(['/order-success', result.key]);
 

@@ -23,26 +23,28 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from '../environments/environment';
-import { AuthService } from './services/auth.service';
-import { UserService } from './services/user.service';
-import { AuthGuardService } from './services/auth-guard.service';
-import { AdminAuthGuardService } from './services/admin-auth-guard.service';
+import { AuthService } from '../services/auth.service';
+import { UserService } from '../services/user.service';
+import { AuthGuardService } from '../services/auth-guard.service';
+import { AdminAuthGuardService } from '../services/admin-auth-guard.service';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
-import { CategoriesService } from './services/categories.service';
-import { ProductService } from './services/product.service';
+import { CategoriesService } from '../services/categories.service';
+import { ProductService } from '../services/product.service';
 import { ProductFilterComponent } from './user/components/products/product-filter/product-filter.component';
 import { ProductCardComponent } from './product-card/product-card.component';
-import { ShoppingCartService } from './services/shopping-cart.service';
+import { ShoppingCartService } from '../services/shopping-cart.service';
 import { ProductQuantityComponent } from './product-quantity/product-quantity.component';
 import { ProductsComponent } from './user/components/products/products.component';
-import { OrderService } from './services/order.service';
+import { OrderService } from '../services/order.service';
 import { ShoppingCartSummaryComponent } from './user/components/checkout/shopping-cart-summary/shopping-cart-summary.component';
 import { ShippingFormComponent } from './user/components/checkout/shipping-form/shipping-form.component';
 import { ProductDetailComponent } from './user/components/products/product-detail/product-detail.component';
 import { ProductItemComponent } from './user/components/products/product-detail/product-item/product-item.component';
 import { ProductItemDetailComponent } from './user/components/products/product-detail/product-item-detail/product-item-detail.component';
 import { MaterialModule } from 'src/material-module';
+import { AdminModule } from './admin/admin.module';
+
 
 
 
@@ -57,8 +59,8 @@ import { MaterialModule } from 'src/material-module';
     CheckoutComponent,
     OrderSuccessComponent,
     MyOrdersComponent,
-    AdminOrdersComponent,
     LoginComponent,
+    AdminOrdersComponent,
     AdminProductsComponent,
     ProductFormComponent,
     ProductFilterComponent,
@@ -70,8 +72,7 @@ import { MaterialModule } from 'src/material-module';
     ProductDetailComponent,
     ProductItemComponent,
     ProductItemDetailComponent,
-
-   
+    
   ],
   imports: [
     BrowserModule,
@@ -86,6 +87,7 @@ import { MaterialModule } from 'src/material-module';
     AngularFireDatabaseModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     MaterialModule,
+    AdminModule
 
   ],
   
